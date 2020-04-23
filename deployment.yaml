@@ -15,8 +15,8 @@ spec:
         app: webserver
     spec:
       containers:
-      - name: webserver
-        image: mywebserver:1.0
+      - name: mywebserver
+        image: mywebserver:2.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
