@@ -1,17 +1,17 @@
-# name: Docker Image Juice Shop
+name: Docker Image Juice Shop
 
-# on:
-#   push:
-#     branches: [ master ]
+on:
+  push:
+    branches: [ master ]
 
-# jobs:
+jobs:
 
-#   build:
+  build:
 
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - uses: actions/checkout@v2
+    steps:
+    - uses: actions/checkout@v2
 #     - name: Build the Docker image
 #       uses: docker/build-push-action@v1
 #       with:
