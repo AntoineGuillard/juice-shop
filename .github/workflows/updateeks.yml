@@ -29,6 +29,6 @@ jobs:
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws configure set aws_session_token ${{ secrets.AWS_SESSION_TOKEN }}
         sed -i "s#IMAGE_NAME#antoineguillard/juiceshop#g" kustomization.yaml
-        sed -i "s/IMAGE_TAG/sha-$(git rev-parse --short HEAD)/g" kustomization.yaml
+        sed -i "s/IMAGE_TAG/sha-7ad4258/g" kustomization.yaml
         aws eks update-kubeconfig --name isen
         kubectl kustomize . | kubectl apply -f -
