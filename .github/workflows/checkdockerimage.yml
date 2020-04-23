@@ -1,0 +1,26 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Check Docker Image
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    - name: use klar
+      run: |
+        wget https://github.com/optiopay/klar/releases/download/v2.4.0/klar-2.4.0-linux-amd64 -O klar
+        chmod +x klar
+        CLAIR_ADDR=http://clair.3r1.co:6060 ./klar docker.io/antoineguillard/juiceshop:sha-7ad4258
